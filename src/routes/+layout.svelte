@@ -24,9 +24,9 @@
 	});
 </script>
 
-<div class="flex gap-8 h-screen md:flex-row flex-col">
+<div class="flex h-screen flex-col md:flex-row">
 	<Sidebar />
-	<div class="flex-1 p-2 md:py-8 md:px-16 h-screen overflow-y-auto">
+	<div class="flex-1 min-h-0 overflow-y-auto p-4 pb-20 md:py-8 md:px-16">
 		{@render children()}
 	</div>
 </div>

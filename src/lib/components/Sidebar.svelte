@@ -51,42 +51,94 @@
 		{ href: '/bijeenkomsten', label: { en: 'Sessions', nl: 'Bijeenkomsten' } },
 		{ href: '/wat-nu', label: { en: 'What now?', nl: 'Wat nu?' } }
 	];
+
+	let menuOpen = $state(false);
+
+	$effect(() => {
+		$page.url.pathname;
+		menuOpen = false;
+	});
 </script>
 
-<aside class="h-auto md:h-screen w-full md:w-52 flex flex-col justify-between bg-white py-6 px-4">
-	<div class="flex flex-row sm:flex-col items-center sm:items-start gap-4 sm:gap-2">
-		<!-- Logo image -->
-		<div class="sm:max-w-[480px] max-w-[120px]">
-			<img src="/hand.png" alt="Algoritmen & de Overheid" width="500" height="500" />
-		</div>
+<!-- Mobile top bar -->
+<div class="flex items-center justify-between bg-white px-4 py-3 shadow-sm md:hidden">
+	<a href="/over/burgerberaad" class="block w-12">
+		<img src="/hand.png" alt="Algoritmen & de Overheid" />
+	</a>
+	<button
+		onclick={() => (menuOpen = !menuOpen)}
+		class="p-2 text-gray-700"
+		aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+	>
+		{#if menuOpen}
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+				<path d="M18 6 6 18M6 6l12 12" />
+			</svg>
+		{:else}
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+				<path d="M4 6h16M4 12h16M4 18h16" />
+			</svg>
+		{/if}
+	</button>
+</div>
 
-		<!-- Navigation -->
-		<nav class="mt-auto text-sm px-2 sm:flex-col flex-row w-full flex gap-4 sm:gap-4 items-center sm:items-start">
+<!-- Mobile nav overlay -->
+{#if menuOpen}
+	<nav class="fixed inset-0 z-40 overflow-y-auto bg-white px-6 pt-20 pb-8 md:hidden">
+		<ul class="flex flex-col gap-5 text-base">
 			{#each navLinks as link}
-				<div class="flex items-center">
-					{#if link.href}
+				{#if link.href}
+					<li>
 						<a
 							href={link.href}
-							class="block hover:text-blue-600 transition-colors {$page.url.pathname === link.href
-								? 'text-blue-600'
-								: ''}"
+							class="block font-medium hover:text-blue-600 {$page.url.pathname === link.href ? 'text-blue-600' : ''}"
 						>
 							{link.label[lang.current]}
 						</a>
-					{:else}
-						<div class="select-none text-gray-500 sm:text-sm hidden">{link.label[lang.current]}</div>
-					{/if}
+					</li>
+				{/if}
+				{#if link.sublinks}
+					{#each link.sublinks as sublink}
+						<li class="pl-4">
+							<a
+								href={sublink.href}
+								class="italic text-gray-700 hover:text-blue-600 {$page.url.pathname === sublink.href ? 'text-blue-600' : ''}"
+							>
+								{sublink.label[lang.current]}
+							</a>
+						</li>
+					{/each}
+				{/if}
+			{/each}
+		</ul>
+	</nav>
+{/if}
 
+<!-- Desktop sidebar -->
+<aside class="hidden h-screen w-52 shrink-0 flex-col justify-between bg-white px-4 py-6 md:flex">
+	<div class="flex flex-col items-start gap-2">
+		<div class="max-w-[480px]">
+			<img src="/hand.png" alt="Algoritmen & de Overheid" width="500" height="500" />
+		</div>
+
+		<nav class="mt-2 flex flex-col gap-4 px-2 text-sm">
+			{#each navLinks as link}
+				<div>
+					{#if link.href}
+						<a
+							href={link.href}
+							class="block hover:text-blue-600 transition-colors {$page.url.pathname === link.href ? 'text-blue-600' : ''}"
+						>
+							{link.label[lang.current]}
+						</a>
+					{/if}
 					{#if link.sublinks}
-						<ul class="mt-0 sm:mt-2 sm:flex-col flex-row w-full flex items-center sm:items-start gap-2">
+						<ul class="mt-2 flex flex-col gap-2">
 							{#each link.sublinks as sublink}
 								<li>
 									<a
 										href={sublink.href}
-										class="text-gray-800 hover:text-blue-600 transition-colors italic {$page.url.pathname ===
-										sublink.href
-											? 'text-blue-600'
-											: ''}"
+										class="italic text-gray-800 hover:text-blue-600 transition-colors {$page.url.pathname === sublink.href ? 'text-blue-600' : ''}"
 									>
 										{sublink.label[lang.current]}
 									</a>
@@ -99,8 +151,7 @@
 		</nav>
 	</div>
 
-	<!-- Footer -->
-	<footer class="hidden md:block text-gray-500 text-xs px-2">
+	<footer class="px-2 text-xs text-gray-500">
 		<p>© 2026 Marit van der Loos</p>
 	</footer>
 </aside>

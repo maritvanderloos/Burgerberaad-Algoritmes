@@ -102,7 +102,7 @@
 	// the other two normal items, all on the same line. The kaartenmap is
 	// nudged up by 1/3 of the hand.png size.
 	const positions = [
-		'md:col-start-1 md:row-start-1 -translate-y-[6.67rem] sm:-translate-y-[8rem] md:-translate-y-[9.33rem]',
+		'md:col-start-1 md:row-start-1 md:-translate-y-[9.33rem]',
 		'md:col-start-3 md:row-start-1',
 		'md:col-start-5 md:row-start-1',
 		'md:col-start-1 md:row-start-2',
@@ -110,8 +110,8 @@
 		'md:col-start-5 md:row-start-2'
 	];
 
-	const heroSize = 'w-48 sm:w-72 md:w-[37rem]';
-	const normalSize = 'w-80 sm:w-96 md:w-[28rem]';
+	const heroSize = 'w-36 sm:w-64 md:w-[37rem]';
+	const normalSize = 'w-36 sm:w-52 md:w-[28rem]';
 
 	// The kaartenmap illustration (student fraud, id 4) always renders as a
 	// hero, regardless of which grid slot it occupies.
@@ -153,7 +153,7 @@
 </div>
 
 <div
-	class="mt-8 grid grid-cols-2 place-items-center gap-x-8 gap-y-14 md:grid-cols-6 md:gap-x-6 md:gap-y-20"
+	class="mt-8 grid grid-cols-2 place-items-center gap-x-4 gap-y-10 md:grid-cols-6 md:gap-x-6 md:gap-y-20"
 >
 	{#each gridAlgorithms as algo, i}
 		<button
