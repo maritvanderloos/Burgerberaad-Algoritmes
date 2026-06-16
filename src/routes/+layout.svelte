@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';
+	import NextPage from '$lib/components/NextPage.svelte';
 	import { lang } from '$lib/lang.svelte';
 	import '../app.css';
 
@@ -27,6 +28,7 @@
 	<Sidebar />
 	<div class="flex-1 p-2 md:py-8 md:px-16 h-screen overflow-y-auto">
 		{@render children()}
+		<NextPage />
 	</div>
 </div>
 
