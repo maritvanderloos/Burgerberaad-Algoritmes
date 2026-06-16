@@ -47,40 +47,32 @@
 		return i >= 0 && i < pages.length - 1 ? pages[i + 1] : null;
 	});
 
-	const label = $derived(
-		lang.current === 'nl' ? 'Volgende pagina' : 'Next page'
-	);
+	const label = $derived(lang.current === 'nl' ? 'Volgende pagina' : 'Next page');
 </script>
 
 {#if next}
-	<div class="mt-16 mb-8 flex justify-end">
-		<a
-			href={next.href}
-			class="group flex items-center gap-3 font-sans no-underline"
-			style="color: #d03f7f"
+	<a
+		href={next.href}
+		class="group fixed bottom-6 right-8 flex items-center gap-2 font-sans no-underline md:left-56"
+		style="color: #d03f7f"
+	>
+		<span class="flex flex-col items-end">
+			<span class="font-sans italic">{label}</span>
+			<span class="font-sans font-medium">{next.label[lang.current]}</span>
+		</span>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="20"
+			height="20"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="2.5"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			class="transition-transform duration-200 group-hover:translate-x-1"
 		>
-			<span class="flex flex-col items-end">
-				<span class="text-xs font-sans uppercase tracking-widest opacity-70">{label}</span>
-				<span class="text-base font-sans font-medium">{next.label[lang.current]}</span>
-			</span>
-			<span
-				class="flex h-10 w-10 items-center justify-center rounded-full border-2 transition-transform duration-200 group-hover:translate-x-1"
-				style="border-color: #d03f7f"
-			>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="18"
-					height="18"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2.5"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				>
-					<path d="M5 12h14M12 5l7 7-7 7" />
-				</svg>
-			</span>
-		</a>
-	</div>
+			<path d="M5 12h14M12 5l7 7-7 7" />
+		</svg>
+	</a>
 {/if}

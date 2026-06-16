@@ -28,9 +28,10 @@
 	<Sidebar />
 	<div class="flex-1 p-2 md:py-8 md:px-16 h-screen overflow-y-auto">
 		{@render children()}
-		<NextPage />
 	</div>
 </div>
+
+<NextPage />
 
 <div class="fixed top-4 right-4 flex items-center gap-1 text-sm z-50">
 	<button
