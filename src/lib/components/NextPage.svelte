@@ -53,7 +53,7 @@
 {#if next}
 	<a
 		href={next.href}
-		class="group fixed bottom-6 right-8 flex items-center gap-2 font-sans no-underline md:left-56"
+		class="group fixed bottom-6 right-8 flex items-center gap-2 font-sans no-underline"
 		style="color: #d03f7f"
 	>
 		<span class="flex flex-col items-end">
