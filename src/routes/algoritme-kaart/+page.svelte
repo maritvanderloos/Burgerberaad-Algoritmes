@@ -94,20 +94,18 @@
 
 	// Grid order, with the student fraud algorithm (4) swapped up into the
 	// prisoner risk assessment algorithm's (1) old slot.
-	const gridOrder = [4, 2, 3, 1, 6, 7];
+	// Row 1: student fraud (left), welfare (centre-left)
+	// Row 2: child abuse (left), job applicants (right) — wide gap between them
+	// Row 3: refugee (bottom right)
+	const gridOrder = [4, 3, 6, 7, 2];
 	const gridAlgorithms = gridOrder.map((id) => algorithms.find((a) => a.id === id)!);
 
-	// Two rows of 3 (md and up): row 1 has the kaartenmap hero plus two normal
-	// items, row 2 has the prisoner risk assessment algorithm together with
-	// the other two normal items, all on the same line. The kaartenmap is
-	// nudged up by 1/3 of the hand.png size.
 	const positions = [
 		'md:col-start-1 md:row-start-1 md:-translate-y-[9.33rem]',
-		'md:col-start-3 md:row-start-1',
-		'md:col-start-5 md:row-start-1',
-		'md:col-start-1 md:row-start-2',
-		'md:col-start-3 md:row-start-2',
-		'md:col-start-5 md:row-start-2'
+		'md:col-start-4 md:row-start-1',
+		'md:col-start-1 md:row-start-2 md:-translate-y-[7rem] md:translate-x-[4rem]',
+		'md:col-start-5 md:row-start-2 md:-translate-y-[6rem] md:-translate-x-[3rem]',
+		'md:col-start-4 md:row-start-3 md:-translate-y-[14rem] md:-translate-x-[8rem]'
 	];
 
 	const heroSize = 'w-36 sm:w-64 md:w-[37rem]';
@@ -115,7 +113,7 @@
 
 	// The kaartenmap illustration (student fraud, id 4) always renders as a
 	// hero, regardless of which grid slot it occupies.
-	const sizeForId: Record<number, string> = { 4: heroSize };
+	const sizeForId: Record<number, string> = { 4: heroSize, 3: 'w-32 sm:w-56 md:w-[33rem]', 6: 'w-44 sm:w-64 md:w-[35rem]', 2: 'w-60 sm:w-96 md:w-[47rem]' };
 </script>
 
 <svelte:head>

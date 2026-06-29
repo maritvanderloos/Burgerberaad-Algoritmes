@@ -28,79 +28,9 @@ const quote = (text: string, author: string): Block => ({ kind: 'quote', text, a
 
 export const algorithms: Algorithm[] = [
 	{
-		id: 1,
-		correct: 'b',
-		image: '/hand.png',
-		content: {
-			en: {
-				title: 'Algorithm to assess prisoners',
-				description: [
-					p(
-						"OxRec is an algorithm that the Dutch government uses to predict whether someone who committed a crime will commit another crime in the future. Probation workers use OxRec to advise judges. The outcome influences whether someone stays in prison or is released."
-					),
-					p(
-						"The algorithm looks at personal information, like someone's age, drug use, and neighbourhood. Based on this information, it calculates a score: low, medium, or high risk."
-					)
-				],
-				reveal: [
-					p(
-						'OxRec was used approximately 44,000 times per year. After the report came out, the Dutch probation service stopped using it immediately.'
-					),
-					p('<strong>What went wrong?</strong>'),
-					p(
-						'In 2026, inspectors discovered that OxRec had been making mistakes since it was first used in 2019. In 1 in 5 cases, the risk score was wrong: it was usually too low.'
-					),
-					p('The software contains several mistakes:'),
-					list([
-						'The formulas inside the software had been accidentally swapped. This means the programme was calculating the wrong thing from the beginning.',
-						'The algorithm was trained on data from Swedish prisoners from 20 years ago. Experts say you cannot use data from one country and time period to make good predictions about people in a different country and time.',
-						'The programme used information like neighbourhood and income to calculate risk. These are not neutral, but indirectly target people who are already in a vulnerable situation. This is a form of hidden discrimination.'
-					])
-				]
-			},
-			nl: {
-				title: 'Algoritme om gevangenen te beoordelen',
-				description: [
-					p(
-						'OxRec is een algoritme dat de Nederlandse overheid gebruikt om te voorspellen of iemand die een misdaad heeft gepleegd in de toekomst opnieuw een misdaad zal plegen. Reclasseringswerkers gebruiken OxRec om rechters te adviseren. De uitkomst beïnvloedt of iemand in de gevangenis blijft of wordt vrijgelaten.'
-					),
-					p(
-						'Het algoritme kijkt naar persoonlijke informatie, zoals iemands leeftijd, drugsgebruik en de wijk waar iemand woont. Op basis hiervan berekent het een score: laag, gemiddeld of hoog risico.'
-					)
-				],
-				reveal: [
-					p(
-						'OxRec werd ongeveer 44.000 keer per jaar gebruikt. Nadat het rapport uitkwam, stopte de Nederlandse reclassering er onmiddellijk mee.'
-					),
-					p('<strong>Wat ging er mis?</strong>'),
-					p(
-						'In 2026 ontdekten inspecteurs dat OxRec al fouten maakte sinds het in 2019 voor het eerst werd gebruikt. In 1 op de 5 gevallen was de risicoscore verkeerd: die was meestal te laag.'
-					),
-					p('De software bevat meerdere fouten:'),
-					list([
-						'De formules in de software waren per ongeluk omgewisseld. Dit betekent dat het programma vanaf het begin de verkeerde dingen berekende.',
-						'Het algoritme was getraind op data van Zweedse gevangenen van 20 jaar geleden. Experts zeggen dat je geen data uit één land en tijdperiode kunt gebruiken om goede voorspellingen te doen over mensen in een ander land en een andere tijd.',
-						'Het programma gebruikte informatie zoals wijk en inkomen om risico te berekenen. Deze zijn niet neutraal, maar richten zich indirect op mensen die al in een kwetsbare situatie zitten. Dit is een vorm van verborgen discriminatie.'
-					])
-				]
-			}
-		},
-		sources: [
-			{
-				label:
-					'Volkskrant: Kans op herhaling criminelen jarenlang verkeerd berekend door falende algoritmen',
-				url: 'https://www.volkskrant.nl/binnenland/kans-op-herhaling-criminelen-jarenlang-verkeerdberekend-door-falende-algoritmen~ba4fe6df/'
-			},
-			{
-				label: 'Algoritmeregister: OxRec',
-				url: 'https://algoritmes.overheid.nl/nl/algoritme/41085610/65346844/oxrec-oxford-risk-ofrecidivism-tool'
-			}
-		]
-	},
-	{
 		id: 2,
 		correct: 'a',
-		image: '/hand.png',
+		image: '/koffer.png',
 		content: {
 			en: {
 				title: 'Algorithm to decide where refugees live',
@@ -171,7 +101,7 @@ export const algorithms: Algorithm[] = [
 	{
 		id: 3,
 		correct: 'b',
-		image: '/hand.png',
+		image: '/rdamalgo.png',
 		content: {
 			en: {
 				title: 'Welfare algorithm to decide who is checked',
@@ -351,7 +281,7 @@ export const algorithms: Algorithm[] = [
 	{
 		id: 6,
 		correct: 'c',
-		image: '/hand.png',
+		image: '/kindalgo.png',
 		content: {
 			en: {
 				title: 'Algorithm to predict child abuse',
@@ -397,7 +327,7 @@ export const algorithms: Algorithm[] = [
 	{
 		id: 7,
 		correct: 'a',
-		image: '/hand.png',
+		image: '/computeralgo.png',
 		content: {
 			en: {
 				title: 'Algorithm to rate job applicants',
